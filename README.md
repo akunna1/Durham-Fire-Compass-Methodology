@@ -33,7 +33,6 @@ The cleaned dataset contains information including:
 * Created a heatmap of incident density — Loaded incident latitude and longitude coordinates, removed records with invalid coordinates, and plotted the remaining incidents as a heatmap where blue indicates lower activity and red indicates the most intense concentrations.
 
 ## Coverage
-## Coverage
 
 ### Input Data
 
