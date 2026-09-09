@@ -27,7 +27,7 @@ The cleaned dataset contains information including:
 ### Demand Analysis
 * Dropped records with invalid dates or times — Records where Alarm Date and Alarm Time could not be converted into a valid date/time were excluded from the analysis.
 * Extracted time attributes — For each valid incident, I extracted the month, weekday, and hour from the alarm date/time and kept the recorded shift.
-* Grouping incidents by time and shift — Incidents were grouped and counted by month, weekday, hour, and shift.
+* Grouped incidents by time and shift — Incidents were grouped and counted by month, weekday, hour, and shift.
 * Prepared and analyzed incident classifications — Loaded the cleaned CSV, counted incidents by Incident Type Group for the radar chart, and broke each group down into its individual Incident Types with their respective counts.
 * Broke down incident types by group — Grouped each individual Incident Type under its Incident Type Group and counted how many times each type
 * Created a heatmap of incident density — Loaded incident latitude and longitude coordinates, removed records with invalid coordinates, and plotted the remaining incidents as a heatmap where blue indicates lower activity and red indicates the most intense concentrations.
