@@ -109,6 +109,8 @@ The Scenarios page uses:
 * `Fire_Stations_Geocoded.csv` — fire station locations and physical addresses
 * `durham_city.geojson` — Durham City boundary
 
+The Compass_Data_2 files were generated using the second python code found in [Durham Fire Compass Data Cleaning repository](https://github.com/akunna1/Durham-Fire-Compass-Data-Cleaning).
+
 ### Scenarios Analysis
 
 * **Input data and filtering** — Loaded the three cleaned CSV datasets and excluded incidents with invalid or zero latitude/longitude coordinates. Station and response-time records were converted to numeric values for mapping and dispatch calculations.
