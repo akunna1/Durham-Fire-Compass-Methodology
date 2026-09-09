@@ -88,6 +88,20 @@ The Community page uses multiple datasets and geographic files:
 * `durham_zoning_cleaned_1.geojson` — zoning boundaries and classifications
 * `durham_city.geojson` — Durham City boundary
 
+R Scripts used to generate pop_incidents.csv and zone_incident_summary.csv:
+* `community_data.R` :
+  * **Input data** — Used 2024 Durham County Census tract boundaries from tigris, 2024 ACS 5-year population data from the U.S. Census Bureau via       tidycensus, and Compass_Data_1_Cleaned.csv containing cleaned fire incident locations.
+  * **Data processing** — Joined ACS population estimates to census tract boundaries, converted incident coordinates to spatial points, and spatially joined incidents to their corresponding census tracts.
+  * **Analysis** — Counted incidents per census tract and calculated the incident rate per 1,000 residents, with missing incident counts and population values handled as zero where appropriate.
+  * **Output files** — Generated durham_tracts_pop.geojson, durham_tracts_pop_incidents.geojson, and pop_incidents.csv for population mapping, incident-rate mapping, and scatterplot analysis in Durham Fire Compass.
+
+* `zoning_data.R` :
+  * * **Input data** — Used `durham_zoning_uncleaned.geojson` containing Durham zoning polygons and `Compass_Data_1_Cleaned.csv` containing cleaned fire incident locations.
+  * **Zoning data cleaning** — Removed unnecessary fields, corrected known classification errors, standardized zoning classifications, cleaned formatting, and validated the resulting geometries.
+  * **Spatial analysis** — Spatially joined incidents to zoning areas, counted incidents by zoning classification, calculated total acreage for each classification, and calculated incidents per 100 acres.
+  * **Output files** — Generated `durham_zoning_cleaned_1.geojson` for the zoning map and `zone_incidents_summary.csv` containing incident counts, total acreage, incident rates, and log-transformed acreage for analysis.
+  
+
 ### Community Analysis
 
 * **Input data and filtering** — Used the population and zoning datasets for the analysis. Population records with invalid numeric values were excluded, while zoning records without a valid zoning classification, land-area value, or incident rate were excluded. Geographic layers were loaded from the corresponding GeoJSON files.
