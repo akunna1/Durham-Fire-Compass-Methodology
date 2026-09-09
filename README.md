@@ -96,7 +96,7 @@ R Scripts used to generate pop_incidents.csv and zone_incident_summary.csv:
   * **Output files** — Generated durham_tracts_pop.geojson, durham_tracts_pop_incidents.geojson, and pop_incidents.csv for population mapping, incident-rate mapping, and scatterplot analysis in Durham Fire Compass.
 
 * `zoning_data.R` :
-  * * **Input data** — Used `durham_zoning_uncleaned.geojson` containing Durham zoning polygons and `Compass_Data_1_Cleaned.csv` containing cleaned fire incident locations.
+  * **Input data** — Used `durham_zoning_uncleaned.geojson` containing Durham zoning polygons and `Compass_Data_1_Cleaned.csv` containing cleaned fire incident locations.
   * **Zoning data cleaning** — Removed unnecessary fields, corrected known classification errors, standardized zoning classifications, cleaned formatting, and validated the resulting geometries.
   * **Spatial analysis** — Spatially joined incidents to zoning areas, counted incidents by zoning classification, calculated total acreage for each classification, and calculated incidents per 100 acres.
   * **Output files** — Generated `durham_zoning_cleaned_1.geojson` for the zoning map and `zone_incidents_summary.csv` containing incident counts, total acreage, incident rates, and log-transformed acreage for analysis.
