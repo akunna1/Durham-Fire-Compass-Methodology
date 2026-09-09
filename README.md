@@ -3,6 +3,7 @@
 This guide documents the data sources, analysis, and methodology used to develop Durham Fire Compass.
 
 ## Demand
+
 ### Input Data
 
 The primary dataset for this page is `Compass_Data_1_Cleaned.csv`.
@@ -25,34 +26,26 @@ The cleaned dataset contains information including:
 * Total incident duration
 
 ### Demand Analysis
-* Dropped records with invalid dates or times — Records where Alarm Date and Alarm Time could not be converted into a valid date/time were excluded from the analysis.
-* Extracted time attributes — For each valid incident, I extracted the month, weekday, and hour from the alarm date/time and kept the recorded shift.
-* Grouped incidents by time and shift — Incidents were grouped and counted by month, weekday, hour, and shift.
-* Prepared and analyzed incident classifications — Loaded the cleaned CSV, counted incidents by Incident Type Group for the radar chart, and broke each group down into its individual Incident Types with their respective counts.
-* Broke down incident types by group — Grouped each individual Incident Type under its Incident Type Group and counted how many times each type
-* Created a heatmap of incident density — Loaded incident latitude and longitude coordinates, removed records with invalid coordinates, and plotted the remaining incidents as a heatmap where blue indicates lower activity and red indicates the most intense concentrations.
+
+* **Input data and filtering** — Used `Compass_Data_1_Cleaned.csv` and excluded records where Alarm Date and Alarm Time could not be converted into valid date/time values. Invalid latitude and longitude records were also excluded from the incident density analysis.
+* **Time-based analysis** — Extracted month, weekday, hour, and shift and counted incidents across these time periods.
+* **Incident classification analysis** — Counted incidents by Incident Type Group and grouped individual Incident Types under their corresponding Incident Type Group.
+* **Interactive filtering** — Selecting a month, weekday, hour, or shift filters the other demand charts to the selected criteria.
+* **Incident density mapping** — Created a heatmap using incident coordinates, with lower activity shown in blue and higher concentrations shown in red, and overlaid the Durham City boundary.
 
 ## Coverage
 
 ### Input Data
 
-The Coverage page uses `Compass_Data_1_Cleaned.csv`, which contains incident response-time, location, station, shift, and incident type group information.
-
-Station locations are loaded separately from `Fire_Stations_Geocoded.csv`. The Durham City boundary is loaded from `durham_city.geojson`.
+The Coverage page uses `Compass_Data_1_Cleaned.csv`, `Fire_Stations_Geocoded.csv`, and `durham_city.geojson`.
 
 ### Coverage Analysis
-* Filtered invalid response-time and location records — Only incidents with a valid Dispatch Total Response Time, Latitude, and Longitude were included in the coverage analysis.
-* Calculated average response time — Calculated the average first-unit response time for all incidents and for the selected Incident Type Group.
-* Classified response times — Incidents were categorized as Fast (≤5 minutes), Moderate (5–8 minutes), or Slow (>8 minutes).
-* Calculated coverage metrics — Counted incidents in each response-time category and used these counts to display Fast Coverage and Weak Coverage (>8 minutes).
-* Created response-time distribution — Displayed the number of incidents in each response-time category using a line chart.
-* Added Incident Type Group filtering — Allowed users to filter the coverage analysis by Incident Type Group while updating the response-time metrics and map.
-* Mapped response performance — Plotted incidents on the map using their latitude and longitude and displayed them according to their response-time category.
-* Identified weak coverage areas — Highlighted incidents with response times greater than 8 minutes to help identify locations with slower response performance.
-* Mapped fire stations — Added geocoded fire station locations and station labels to the map.
-* Added station service-radius buffers — Added interactive 3-, 5-, and 7-mile buffers around each fire station to provide geographic context for station coverage.
-* Added Durham City boundary — Overlaid the Durham City boundary to provide geographic context for incident locations and station coverage.
 
+* **Input data and filtering** — Used `Compass_Data_1_Cleaned.csv` and excluded incidents without a valid Dispatch Total Response Time, Latitude, or Longitude. Fire station locations were loaded from `Fire_Stations_Geocoded.csv`, and the Durham City boundary was loaded from `durham_city.geojson`.
+* **Response-time analysis** — Calculated average first-unit response time and classified incidents as **Fast (≤5 minutes)**, **Moderate (5–8 minutes)**, or **Slow (>8 minutes)**.
+* **Coverage metrics** — Counted incidents within each response-time category and calculated Fast Coverage and Weak Coverage (>8 minutes).
+* **Interactive filtering and mapping** — Allowed filtering by Incident Type Group and updated the response-time metrics and map accordingly.
+* **Coverage visualization** — Displayed response-time distributions, incident locations, weak coverage areas, fire stations, 3-, 5-, and 7-mile station buffers, and the Durham City boundary.
 
 ## Stations
 
@@ -61,14 +54,20 @@ Station locations are loaded separately from `Fire_Stations_Geocoded.csv`. The D
 The Stations page uses `Compass_Data_1_Cleaned.csv`, focusing on station, battalion, shift, and response-time data.
 
 ### Stations Analysis
-* Cleaned and prepared the data — Removed records without a valid response time or station and prepared station, battalion, shift, and response-time fields for analysis.
-* Analyzed station and battalion performance — Calculated incident volume and average response time for each station and battalion and identified the busiest and fastest.
-* Added filtering and cross-filtering — Users can filter by shift or select a station/battalion to update the related metrics and charts.
-* Visualized results — Displayed station and battalion incident volume and average response time using interactive bar charts.
+
+* **Input data and filtering** — Used `Compass_Data_1_Cleaned.csv` and excluded records without a valid Dispatch Total Response Time or Station.
+* **Station and battalion analysis** — Calculated incident volume and average response time for each station and battalion and identified the busiest and fastest.
+* **Shift and cross-filtering** — Allowed filtering by Shift A, B, or C and selecting a station or battalion to update related metrics.
+* **Performance visualization** — Displayed station and battalion incident volume and average response time using interactive bar charts.
 
 ## Apparatus
 
 ## Community
 
 ## Scenarios
-Additional cleaned datasets are used by the **Scenarios** page and are generated using the second pyhton code to create `Compass_Data_2_Cleaned.csv`, `Compass_Data_2a_Cleaned.csv`, and `Compass_Data_2b_Cleaned.csv`.
+
+Additional cleaned datasets are used by the **Scenarios** page. These datasets are generated using the second Python script and include:
+
+* `Compass_Data_2_Cleaned.csv`
+* `Compass_Data_2a_Cleaned.csv`
+* `Compass_Data_2b_Cleaned.csv`
