@@ -2,9 +2,9 @@
 
 This guide documents the data sources, analysis, and methodology used to develop Durham Fire Compass.
 
-## Demand 
+## 📊 Demand 
 
-### Input Data
+### 📥 Input Data
 
 The primary dataset for this page is `Compass_Data_1_Cleaned.csv`.
 
@@ -33,9 +33,9 @@ The cleaned dataset contains information including:
 * **Interactive filtering** — Selecting a month, weekday, hour, or shift filters the other demand charts to the selected criteria.
 * **Incident density mapping** — Created a heatmap using incident coordinates, with lower activity shown in blue and higher concentrations shown in red, and overlaid the Durham City boundary.
 
-## Coverage
+## 🗺️ Coverage
 
-### Input Data
+### 📥 Input Data
 
 The Coverage page uses `Compass_Data_1_Cleaned.csv`, `Fire_Stations_Geocoded.csv`, and `durham_city.geojson`.
 
@@ -47,9 +47,9 @@ The Coverage page uses `Compass_Data_1_Cleaned.csv`, `Fire_Stations_Geocoded.csv
 * **Interactive filtering and mapping** — Allowed filtering by Incident Type Group and updated the response-time metrics and map accordingly.
 * **Coverage visualization** — Displayed response-time distributions, incident locations, weak coverage areas, fire stations, 3-, 5-, and 7-mile station buffers, and the Durham City boundary.
 
-## Stations
+## 🚒 Stations
 
-### Input Data
+### 📥 Input Data
 
 The Stations page uses `Compass_Data_1_Cleaned.csv`, focusing on station, battalion, shift, and response-time data.
 
@@ -60,9 +60,9 @@ The Stations page uses `Compass_Data_1_Cleaned.csv`, focusing on station, battal
 * **Shift and cross-filtering** — Allowed filtering by Shift A, B, or C and selecting a station or battalion to update related metrics.
 * **Performance visualization** — Displayed station and battalion incident volume and average response time using interactive bar charts.
 
-## Apparatus
+## 🚑 Apparatus
 
-### Input Data
+### 📥 Input Data
 
 The Apparatus page uses `Compass_Data_1_Cleaned.csv`, focusing on Incident Type Group, Suppression Apparatus Count, Apparatus Type, and Total On Scene Time.
 
@@ -75,9 +75,9 @@ The Apparatus page uses `Compass_Data_1_Cleaned.csv`, focusing on Incident Type 
 * **Visualization** — Displayed suppression apparatus deployment and on-scene time relationships using interactive bar charts and a heatmap table.
 
 
-## Community
+## 🏘️ Community
 
-### Input Data
+### 📥 Input Data
 
 The Community page uses multiple datasets and geographic files:
 
@@ -88,7 +88,7 @@ The Community page uses multiple datasets and geographic files:
 * `durham_zoning_cleaned_1.geojson` — zoning boundaries and classifications
 * `durham_city.geojson` — Durham City boundary
 
-R Scripts used to generate pop_incidents.csv and zone_incident_summary.csv:
+📜 R Scripts used to generate pop_incidents.csv and zone_incident_summary.csv:
 * `community_data.R` :
   * **Input data** — Used 2024 Durham County Census tract boundaries from tigris, 2024 ACS 5-year population data from the U.S. Census Bureau via       tidycensus, and Compass_Data_1_Cleaned.csv containing cleaned fire incident locations.
   * **Data processing** — Joined ACS population estimates to census tract boundaries, converted incident coordinates to spatial points, and spatially joined incidents to their corresponding census tracts.
@@ -111,9 +111,9 @@ R Scripts used to generate pop_incidents.csv and zone_incident_summary.csv:
 * **Visualized relationships and interpretation** — Used scatter plots, regression lines, zoning/population maps, and explanatory summaries to examine how population, land area, and land use relate to incident patterns.
 
 
-## Scenarios
+## 🧪 Scenarios
 
-### Input Data
+### 📥 Input Data
 
 The Scenarios page uses:
 
