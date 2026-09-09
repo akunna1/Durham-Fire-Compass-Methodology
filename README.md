@@ -62,7 +62,40 @@ The Stations page uses `Compass_Data_1_Cleaned.csv`, focusing on station, battal
 
 ## Apparatus
 
+### Input Data
+
+The Apparatus page uses `Compass_Data_1_Cleaned.csv`, focusing on Incident Type Group, Suppression Apparatus Count, Apparatus Type, and Total On Scene Time.
+
+### Apparatus Analysis
+
+* **Input data and filtering** — Used `Compass_Data_1_Cleaned.csv` and excluded records without an Incident Type Group or valid Total On Scene Time. Missing Suppression Apparatus Count values were treated as zero, and missing Apparatus Type values were classified as `Unknown`.
+* **Suppression apparatus analysis** — Calculated the average number of suppression apparatus deployed for each Incident Type Group.
+* **Apparatus distribution analysis** — Counted apparatus types within each Incident Type Group and displayed the results in a pivot-style heatmap table.
+* **On-scene time analysis** — Grouped incidents into on-scene time ranges from 0–10 minutes through 60+ minutes and calculated the average suppression apparatus count for each range.
+* **Visualization** — Displayed suppression apparatus deployment and on-scene time relationships using interactive bar charts and a heatmap table.
+
+
 ## Community
+
+### Input Data
+
+The Community page uses multiple datasets and geographic files:
+
+* `Compass_Data_1_Cleaned.csv` — incident data from ESO Suite
+* `pop_incidents.csv` — census tract population and incident-rate data
+* `zone_incidents_summary.csv` — zoning, land-area, and incident-rate data
+* `durham_tracts_pop.geojson` — census tract boundaries and population
+* `durham_zoning_cleaned_1.geojson` — zoning boundaries and classifications
+* `durham_city.geojson` — Durham City boundary
+
+### Community Analysis
+
+* **Input data and filtering** — Used the population and zoning datasets for the analysis. Population records with invalid numeric values were excluded, while zoning records without a valid zoning classification, land-area value, or incident rate were excluded. Geographic layers were loaded from the corresponding GeoJSON files.
+* **Population and incident-rate analysis** — Compared census tract population with incident rates per 1,000 residents and calculated a linear regression and R² value to measure the strength of the relationship.
+* **Land-use and incident-rate analysis** — Compared zoning classifications and land area with incident rates per 100 acres. Total acres were log-transformed to reduce the effect of large differences in zone size.
+* **Mapped community characteristics** — Mapped population by census tract and zoning classifications using interactive geographic layers, with an optional Durham City boundary overlay.
+* **Visualized relationships and interpretation** — Used scatter plots, regression lines, zoning/population maps, and explanatory summaries to examine how population, land area, and land use relate to incident patterns.
+
 
 ## Scenarios
 
