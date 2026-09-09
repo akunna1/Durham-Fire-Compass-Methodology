@@ -56,6 +56,16 @@ Station locations are loaded separately from `Fire_Stations_Geocoded.csv`. The D
 
 ## Stations
 
+### Input Data
+
+The Stations page uses `Compass_Data_1_Cleaned.csv`, focusing on station, battalion, shift, and response-time data.
+
+### Stations Analysis
+* Cleaned and prepared the data — Removed records without a valid response time or station and prepared station, battalion, shift, and response-time fields for analysis.
+* Analyzed station and battalion performance — Calculated incident volume and average response time for each station and battalion and identified the busiest and fastest.
+* Added filtering and cross-filtering — Users can filter by shift or select a station/battalion to update the related metrics and charts.
+* Visualized results — Displayed station and battalion incident volume and average response time using interactive bar charts.
+
 ## Apparatus
 
 ## Community
