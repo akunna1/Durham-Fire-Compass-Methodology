@@ -33,6 +33,27 @@ The cleaned dataset contains information including:
 * Created a heatmap of incident density — Loaded incident latitude and longitude coordinates, removed records with invalid coordinates, and plotted the remaining incidents as a heatmap where blue indicates lower activity and red indicates the most intense concentrations.
 
 ## Coverage
+## Coverage
+
+### Input Data
+
+The Coverage page uses `Compass_Data_1_Cleaned.csv`, which contains incident response-time, location, station, shift, and incident type group information.
+
+Station locations are loaded separately from `Fire_Stations_Geocoded.csv`. The Durham City boundary is loaded from `durham_city.geojson`.
+
+### Coverage Analysis
+* Filtered invalid response-time and location records — Only incidents with a valid Dispatch Total Response Time, Latitude, and Longitude were included in the coverage analysis.
+* Calculated average response time — Calculated the average first-unit response time for all incidents and for the selected Incident Type Group.
+* Classified response times — Incidents were categorized as **Fast (≤5 minutes)**, **Moderate (5–8 minutes)**, or **Slow (>8 minutes)**.
+* Calculated coverage metrics — Counted incidents in each response-time category and used these counts to display Fast Coverage and Weak Coverage (>8 minutes).
+* Created response-time distribution — Displayed the number of incidents in each response-time category using a line chart.
+* Added Incident Type Group filtering — Allowed users to filter the coverage analysis by Incident Type Group while updating the response-time metrics and map.
+* Mapped response performance — Plotted incidents on the map using their latitude and longitude and displayed them according to their response-time category.
+* Identified weak coverage areas — Highlighted incidents with response times greater than 8 minutes to help identify locations with slower response performance.
+* Mapped fire stations — Added geocoded fire station locations and station labels to the map.
+* Added station service-radius buffers — Added interactive 3-, 5-, and 7-mile buffers around each fire station to provide geographic context for station coverage.
+* Added Durham City boundary — Overlaid the Durham City boundary to provide geographic context for incident locations and station coverage.
+
 
 ## Stations
 
