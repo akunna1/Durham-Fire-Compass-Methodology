@@ -43,7 +43,7 @@ Station locations are loaded separately from `Fire_Stations_Geocoded.csv`. The D
 ### Coverage Analysis
 * Filtered invalid response-time and location records — Only incidents with a valid Dispatch Total Response Time, Latitude, and Longitude were included in the coverage analysis.
 * Calculated average response time — Calculated the average first-unit response time for all incidents and for the selected Incident Type Group.
-* Classified response times — Incidents were categorized as **Fast (≤5 minutes)**, **Moderate (5–8 minutes)**, or **Slow (>8 minutes)**.
+* Classified response times — Incidents were categorized as Fast (≤5 minutes), Moderate (5–8 minutes), or Slow (>8 minutes).
 * Calculated coverage metrics — Counted incidents in each response-time category and used these counts to display Fast Coverage and Weak Coverage (>8 minutes).
 * Created response-time distribution — Displayed the number of incidents in each response-time category using a line chart.
 * Added Incident Type Group filtering — Allowed users to filter the coverage analysis by Incident Type Group while updating the response-time metrics and map.
