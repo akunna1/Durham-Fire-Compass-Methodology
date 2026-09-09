@@ -2,7 +2,7 @@
 
 This guide documents the data sources, analysis, and methodology used to develop Durham Fire Compass.
 
-## Demand
+## Demand 
 
 ### Input Data
 
@@ -99,8 +99,20 @@ The Community page uses multiple datasets and geographic files:
 
 ## Scenarios
 
-Additional cleaned datasets are used by the **Scenarios** page. These datasets are generated using the second Python script and include:
+### Input Data
 
-* `Compass_Data_2_Cleaned.csv`
-* `Compass_Data_2a_Cleaned.csv`
-* `Compass_Data_2b_Cleaned.csv`
+The Scenarios page uses:
+
+* `Compass_Data_2_Cleaned.csv` — incident locations and Incident Type Groups
+* `Compass_Data_2a_Cleaned.csv` — average response time by Incident Type Group
+* `Compass_Data_2b_Cleaned.csv` — average response time by station
+* `Fire_Stations_Geocoded.csv` — fire station locations and physical addresses
+* `durham_city.geojson` — Durham City boundary
+
+### Scenarios Analysis
+
+* **Input data and filtering** — Loaded the three cleaned CSV datasets and excluded incidents with invalid or zero latitude/longitude coordinates. Station and response-time records were converted to numeric values for mapping and dispatch calculations.
+* **Station inventory and response planning** — Used editable station apparatus inventory and incident-type response plans to determine which apparatus are available for each scenario.
+* **Dispatch eligibility and prioritization** — Checked apparatus availability first, then evaluated stations within 3-, 5-, and 7-mile buffers. Eligible stations were prioritized using the lowest calculated station–incident response time.
+* **Response-time calculation** — Calculated station–incident response time as the average of the selected station's average response time and the average response time for the incident's type group.
+* **Scenario simulation and mapping** — Simulated dispatch behavior as inventory or response-plan values change and displayed the active incident, eligible/dispatched stations, coverage buffers, and mutual-aid status on the map.
