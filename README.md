@@ -31,7 +31,7 @@ The cleaned dataset contains information including:
 * **Time-based analysis** — Extracted month, weekday, hour, and shift and counted incidents across these time periods.
 * **Incident classification analysis** — Counted incidents by Incident Type Group and grouped individual Incident Types under their corresponding Incident Type Group.
 * **Interactive filtering** — Selecting a month, weekday, hour, or shift filters the other demand charts to the selected criteria.
-* **Incident density mapping** — Created a heatmap using incident coordinates, with lower activity shown in blue and higher concentrations shown in red, and overlaid the Durham City boundary.
+* **Incident density mapping** — Aggregated incident coordinates into geographic grid cells and counted the number of incidents within each cell. Cells were colored by relative incident-count percentiles, with lighter colors representing lower counts and darker colors representing higher counts.
 
 ## 🗺️ Coverage
 
